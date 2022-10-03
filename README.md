@@ -6,3 +6,4 @@ Advice - An app that uses a JSON API to fetch a new advice every day to display 
 
 GuessTheFlag- A quiz game app that presents the users with the name of a country and images of 3 different flags. Users have to select the flag matching the country in order to increase their score. The various flag-images are obtained by using the Geognos World Countries API.
 
+AICrosswordSolver - An app that allows users to select a crossword structure and get it solved by using words from an included wordset.The Maintaining Arc-Consistency algorithm is used to solve the crosswords.
