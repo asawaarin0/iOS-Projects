@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="CDQ-lx-G7X">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Select Crossword Structure-->
+        <scene sceneID="Qq6-60-ao1">
+            <objects>
+                <viewController id="kaY-jB-63W" customClass="CrosswordStructureViewController" customModule="AICrosswordSolver" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Pp3-5T-Uli">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Dck-Yi-hBr">
+                                <rect key="frame" x="0.0" y="103" width="414" height="611"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Zbe-Pk-F3Y">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="crosswordCell" id="PUJ-f9-c8M" customClass="CrosswordBoxCell" customModule="AICrosswordSolver" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="bGY-mU-C0A">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qgE-Fl-N49">
+                                                    <rect key="frame" x="40" y="52" width="48" height="24"/>
+                                                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="qgE-Fl-N49" firstAttribute="centerX" secondItem="bGY-mU-C0A" secondAttribute="centerX" id="Cx3-HK-bQr"/>
+                                                <constraint firstItem="qgE-Fl-N49" firstAttribute="centerY" secondItem="bGY-mU-C0A" secondAttribute="centerY" id="I0E-aY-VU4"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <connections>
+                                            <outlet property="label" destination="qgE-Fl-N49" id="kIm-dw-9kY"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="delegate" destination="kaY-jB-63W" id="ugi-k9-Ohx"/>
+                                </connections>
+                            </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ltH-GS-4OH">
+                                <rect key="frame" x="158" y="741" width="98" height="41"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="41" id="9kG-9j-9mT"/>
+                                    <constraint firstAttribute="width" constant="98" id="C1o-18-0MX"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Reset">
+                                    <backgroundConfiguration key="background" cornerRadius="10">
+                                        <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                        <color key="strokeColor" systemColor="labelColor"/>
+                                    </backgroundConfiguration>
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="20"/>
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="didClickResetButton:" destination="kaY-jB-63W" eventType="touchUpInside" id="GY6-S6-L6K"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P3B-P6-Bi9">
+                                <rect key="frame" x="158" y="806" width="98" height="41"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="41" id="2fx-dr-QiN"/>
+                                    <constraint firstAttribute="width" constant="98" id="KOj-JX-j20"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Next">
+                                    <backgroundConfiguration key="background" cornerRadius="10">
+                                        <color key="backgroundColor" systemColor="tintColor"/>
+                                        <color key="strokeColor" systemColor="labelColor"/>
+                                    </backgroundConfiguration>
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="20"/>
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <segue destination="SVE-tc-blH" kind="popoverPresentation" popoverAnchorView="P3B-P6-Bi9" id="7JQ-ib-Ioz">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="nmM-rH-Anc"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="P3B-P6-Bi9" firstAttribute="centerX" secondItem="Pp3-5T-Uli" secondAttribute="centerX" id="5bk-2v-wVa"/>
+                            <constraint firstItem="P3B-P6-Bi9" firstAttribute="centerX" secondItem="Pp3-5T-Uli" secondAttribute="centerX" id="62U-mC-Uta"/>
+                            <constraint firstItem="nmM-rH-Anc" firstAttribute="bottom" secondItem="P3B-P6-Bi9" secondAttribute="bottom" constant="15" id="Eb2-z5-nRu"/>
+                            <constraint firstItem="ltH-GS-4OH" firstAttribute="centerX" secondItem="Pp3-5T-Uli" secondAttribute="centerX" id="OhA-nb-1EW"/>
+                            <constraint firstItem="Dck-Yi-hBr" firstAttribute="leading" secondItem="nmM-rH-Anc" secondAttribute="leading" id="Qsr-K7-atr"/>
+                            <constraint firstItem="P3B-P6-Bi9" firstAttribute="top" secondItem="ltH-GS-4OH" secondAttribute="bottom" constant="24" id="UBG-5i-3F4"/>
+                            <constraint firstItem="Dck-Yi-hBr" firstAttribute="trailing" secondItem="nmM-rH-Anc" secondAttribute="trailing" id="WZ3-CA-qBs"/>
+                            <constraint firstItem="ltH-GS-4OH" firstAttribute="top" secondItem="Dck-Yi-hBr" secondAttribute="bottom" constant="27" id="fxQ-uU-QOf"/>
+                            <constraint firstItem="Dck-Yi-hBr" firstAttribute="top" secondItem="nmM-rH-Anc" secondAttribute="top" constant="15" id="j8G-lH-6n1"/>
+                            <constraint firstItem="ltH-GS-4OH" firstAttribute="top" secondItem="Dck-Yi-hBr" secondAttribute="bottom" constant="27" id="mbV-dT-cEb"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Select Crossword Structure" id="jOs-5i-Cbp"/>
+                    <connections>
+                        <outlet property="collectionView" destination="Dck-Yi-hBr" id="ijz-HA-L20"/>
+                        <outlet property="nextButton" destination="P3B-P6-Bi9" id="ACl-NA-NJn"/>
+                        <outlet property="resetButton" destination="ltH-GS-4OH" id="a8X-3X-Wzg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="73r-Ys-LuQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="868.11594202898561" y="-151.33928571428569"/>
+        </scene>
+        <!--Select Word Set -->
+        <scene sceneID="t6T-xc-WkX">
+            <objects>
+                <viewController storyboardIdentifier="selectWordSetVCID" id="yhS-a6-O0n" customClass="SelectWordSetViewController" customModule="AICrosswordSolver" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6cC-45-9pU">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="I5l-nD-b9X">
+                                <rect key="frame" x="0.0" y="88" width="414" height="578"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="wordSetCell" id="7r8-HM-FIW">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7r8-HM-FIW" id="naI-MW-EXg">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="yhS-a6-O0n" id="DJQ-dH-Pn9"/>
+                                    <outlet property="delegate" destination="yhS-a6-O0n" id="9RT-he-KfQ"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="otQ-zX-vz7">
+                                <rect key="frame" x="158" y="739" width="98" height="41"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Solve">
+                                    <backgroundConfiguration key="background" cornerRadius="10">
+                                        <color key="backgroundColor" systemColor="systemTealColor"/>
+                                        <color key="strokeColor" systemColor="labelColor"/>
+                                    </backgroundConfiguration>
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="20"/>
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="didPressSolveButton:" destination="yhS-a6-O0n" eventType="touchUpInside" id="vmk-OL-Ktz"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="K2s-jK-jv3"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="otQ-zX-vz7" firstAttribute="top" secondItem="I5l-nD-b9X" secondAttribute="bottom" constant="73" id="P2a-2K-54B"/>
+                            <constraint firstItem="I5l-nD-b9X" firstAttribute="trailing" secondItem="K2s-jK-jv3" secondAttribute="trailing" id="PrX-Qb-nz9"/>
+                            <constraint firstItem="K2s-jK-jv3" firstAttribute="trailing" secondItem="otQ-zX-vz7" secondAttribute="trailing" constant="158" id="Wvw-EG-nKe"/>
+                            <constraint firstItem="otQ-zX-vz7" firstAttribute="leading" secondItem="K2s-jK-jv3" secondAttribute="leading" constant="158" id="ZZo-F4-Rti"/>
+                            <constraint firstItem="I5l-nD-b9X" firstAttribute="top" secondItem="K2s-jK-jv3" secondAttribute="top" constant="32" id="a0c-8i-8bf"/>
+                            <constraint firstItem="K2s-jK-jv3" firstAttribute="bottom" secondItem="I5l-nD-b9X" secondAttribute="bottom" constant="176" id="byh-tI-GK8"/>
+                            <constraint firstItem="K2s-jK-jv3" firstAttribute="bottom" secondItem="otQ-zX-vz7" secondAttribute="bottom" constant="62" id="h0P-Gu-mVp"/>
+                            <constraint firstItem="I5l-nD-b9X" firstAttribute="leading" secondItem="K2s-jK-jv3" secondAttribute="leading" id="paK-kP-PFf"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Select Word Set " id="0Ar-0q-U0u"/>
+                    <connections>
+                        <outlet property="solveButton" destination="otQ-zX-vz7" id="yLd-GL-nik"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="D0h-wJ-HN6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2778.2608695652175" y="-151.33928571428569"/>
+        </scene>
+        <!--Word Set Detail Table View Controller-->
+        <scene sceneID="PBx-J9-f7s">
+            <objects>
+                <tableViewController storyboardIdentifier="wordSetDetail" id="Fbw-yO-epX" customClass="WordSetDetailTableViewController" customModule="AICrosswordSolver" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="dte-uk-H8u">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="wordCell" id="jfE-ri-F4C">
+                                <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jfE-ri-F4C" id="Qyl-XD-uhd">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Fbw-yO-epX" id="ljJ-Xr-Uqc"/>
+                            <outlet property="delegate" destination="Fbw-yO-epX" id="UdK-2l-74X"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="iS8-Np-fm5"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Nzy-Nf-8KH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3630" y="-151"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="V6E-Xc-N9c">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="CDQ-lx-G7X" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="nLv-0T-gJB">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="kaY-jB-63W" kind="relationship" relationship="rootViewController" id="9Rd-pL-MyB"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="82O-5l-vea" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-42.028985507246382" y="-151.33928571428569"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Gs2-ZA-vhm">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="SVE-tc-blH" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Kf4-aN-lvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="yhS-a6-O0n" kind="relationship" relationship="rootViewController" id="ApM-G4-Xaa"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eEf-Qk-9ea" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1866.6666666666667" y="-151.33928571428569"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemTealColor">
+            <color red="0.18823529411764706" green="0.69019607843137254" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="tintColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
